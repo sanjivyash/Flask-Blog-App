@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Posts </title>
+{% endblock %}
+
+{% block body %}
+<br>
+<h2 class="display-2" style='text-align: center;'> All Posts </h2>
+
+    <a class='btn  btn-outline-primary my-2 my-sm-0' href="/posts/new-post" style='position: absolute; top: 125px; right: 215px;'> Add New Post </a>
+    <hr>
+
+    {% for post in posts %}
+    <div onclick="location.href='/posts/{{ post.id }}'" class="btn  btn-outline-success my-2 my-sm-0" style="width: 100%; cursor: pointer;">
+        <span class="float-left" style="display: inline; font-size: xx-large;"> {{ post.title }} </span>
+        <small class="float-right" style="display: inline; position: relative; top: 15px;">Written by {{ post.author }}</small>
+    </div>
+        
+        <hr>
+    {% endfor %}
+
+    <script>
+        const buttons = document.querySelectorAll('.btn-danger')
+        Array.from(buttons).forEach(button => {
+            button.style.textAlign = 'center';
+        }); 
+    </script>
+
+{% endblock %}

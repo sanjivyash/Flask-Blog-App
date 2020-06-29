@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>{{ post.title }}</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+        <h3 class="display-3" style='text-align: center;'> {{ post.title }} </h2>     
+        <small>Written by <b>{{ post.author }}</b> on {{ post.date.day }}/{{ post.date.month }}/{{ post.date.year }}</small>
+        <hr><br>
+        <p style="white-space: pre-wrap;">{{ post.content }}</p>
+        <hr>
+        <a class="btn btn-outline-danger my-2 my-sm-0 float-right" href="/posts/delete/{{ post.id }}" style="width: 15%;">Delete</a>
+        <a class="btn btn-outline-warning my-2 my-sm-0 float-left" href="/posts/edit/{{ post.id }}" style="width: 15%;">Edit</a>
+
+{% endblock %}
